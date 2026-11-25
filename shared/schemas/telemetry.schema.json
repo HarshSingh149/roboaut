@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SimulationFrame",
+  "type": "object",
+  "required": ["tick", "status", "rhcr", "robots", "hazards", "metrics"],
+  "properties": {
+    "tick": { "type": "integer", "minimum": 0 },
+    "status": { "enum": ["idle", "running", "paused"] },
+    "rhcr": {
+      "type": "object",
+      "required": ["windowW", "replanH"],
+      "properties": {
+        "windowW": { "type": "integer", "minimum": 2 },
+        "replanH": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "robots": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "x", "y", "prevX", "prevY", "state", "payloadWeightKg", "moveIntervalTicks", "thermalC"],
+        "properties": {
+          "id": { "type": "string" },
+          "x": { "type": "integer" },
+          "y": { "type": "integer" },
+          "prevX": { "type": "integer" },
+          "prevY": { "type": "integer" },
+          "state": { "enum": ["idle", "to_pickup", "to_dropoff", "returning", "waiting", "stalled"] },
+          "payloadWeightKg": { "type": "number", "minimum": 0 },
+          "moveIntervalTicks": { "enum": [1, 2, 3] },
+          "thermalC": { "type": "number" },
+          "fireAlert": { "type": "boolean" },
+          "targetId": { "type": ["string", "null"] },
+          "plannedPath": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "prefixItems": [{ "type": "integer" }, { "type": "integer" }]
+            }
+          }
+        }
+      }
+    },
+    "hazards": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "type", "x", "y", "radius", "detectedBy"],
+        "properties": {
+          "id": { "type": "string" },
+          "type": { "enum": ["fire", "dynamic_obstacle"] },
+          "x": { "type": "integer" },
+          "y": { "type": "integer" },
+          "radius": { "type": "integer", "minimum": 0 },
+          "detectedBy": { "type": "string" }
+        }
+      }
+    },
+    "metrics": {
+      "type": "object",
+      "required": ["completedTasks", "activeTasks", "deadlocksResolved", "avgPlanMs"],
+      "properties": {
+        "completedTasks": { "type": "integer" },
+        "activeTasks": { "type": "integer" },
+        "deadlocksResolved": { "type": "integer" },
+        "avgPlanMs": { "type": "number" }
+      }
+    }
+  }
+}

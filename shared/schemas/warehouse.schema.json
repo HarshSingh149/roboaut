@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "WarehouseConfig",
+  "type": "object",
+  "required": ["id", "name", "rows", "cols", "voidCells", "entities"],
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "name": { "type": "string", "minLength": 1 },
+    "rows": { "type": "integer", "minimum": 4, "maximum": 120 },
+    "cols": { "type": "integer", "minimum": 4, "maximum": 120 },
+    "voidCells": {
+      "type": "array",
+      "description": "Out-of-bounds integer [x, y] coordinates for irregular/polygon warehouse shapes.",
+      "items": {
+        "type": "array",
+        "prefixItems": [{ "type": "integer" }, { "type": "integer" }],
+        "minItems": 2,
+        "maxItems": 2
+      }
+    },
+    "entities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "type", "x", "y"],
+        "properties": {
+          "id": { "type": "string" },
+          "type": { "enum": ["shelf", "obstacle", "pickup", "dropoff", "parking"] },
+          "x": { "type": "integer", "minimum": 0 },
+          "y": { "type": "integer", "minimum": 0 },
+          "label": { "type": "string" }
+        }
+      }
+    }
+  }
+}

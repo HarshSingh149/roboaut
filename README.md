@@ -102,3 +102,8 @@ Unlike conventional 2D A* warehouse simulators that fail under high fleet densit
 ```bash
 git clone [https://github.com/Ritesh-Sabharwal/warehouse-robot-coordination.git](https://github.com/Ritesh-Sabharwal/warehouse-robot-coordination.git)
 cd warehouse-robot-coordination
+## Documentation
+- **[Setup & Troubleshooting Guide](docs/SETUP.md)** — Prerequisites, install steps, and common fixes.
+- **[Usage Examples & Payloads](docs/EXAMPLES.md)** — Live demo walkthroughs and sample VDA 5050 JSON.
+- **[System Architecture](docs/ARCHITECTURE.md)** — Space-Time A* engine and AMR bridge design.
+- **[Deployment Plan](DEPLOYMENT.md)** — Vercel, Docker, and on-premise warehouse rollout.

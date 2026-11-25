@@ -1,3 +1,10 @@
+/**
+ * Space-Time A* Multi-Agent Pathfinding (MAPF) Engine
+ *
+ * Plans collision-free trajectories over (x, y, time) using a shared reservation
+ * table to prevent both vertex collisions and head-on edge-swap deadlocks.
+ * Supports dynamic idle eviction, active rest points, and zero-reset replanning.
+ */
 import type { DynamicHazard, MapfRobot, MapfSnapshot, RobotPhase } from '../types/simulation';
 
 const INF = 30000;

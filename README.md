@@ -91,3 +91,14 @@ Unlike conventional 2D A* warehouse simulators that fail under high fleet densit
    Supports real-time non-rectangular warehouse topologies (L-Shape, Circle, Triangle, freehand custom carving) alongside live fire injection, shelf dragging, and mid-delivery robot failure recovery with strict single-owner package reassignment.
 5. **Hardware-Agnostic VDA 5050 Fleet Bridge:**
    Decouples high-level traffic orchestration from proprietary robot firmware by targeting the industrial **VDA 5050 (MQTT/JSON)** standard and lightweight REST/WebSocket adapters for closed-source AMRs (Addverb, KUKA, MiR, GreyOrange).
+## Setup & Installation
+
+### Prerequisites
+- **Node.js** `v18.0+` and **npm** `v9.0+`
+- **Python** `3.10+` (optional, for FastAPI backend bridge)
+- **Git**
+
+### 1. Clone the Repository
+```bash
+git clone [https://github.com/Ritesh-Sabharwal/warehouse-robot-coordination.git](https://github.com/Ritesh-Sabharwal/warehouse-robot-coordination.git)
+cd warehouse-robot-coordination

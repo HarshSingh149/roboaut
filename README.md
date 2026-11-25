@@ -73,3 +73,7 @@ export default defineConfig([
 ])
 
 ```
+## Testing
+Run the built-in unit test suite:
+```bash
+npm test

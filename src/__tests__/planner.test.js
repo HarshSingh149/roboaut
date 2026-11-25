@@ -1,3 +1,8 @@
+/**
+ * Automated Unit Tests — Space-Time A* Coordination Guards
+ * Verifies vertex collision blocking, head-on edge-swap prevention,
+ * and strict single-owner order reassignment during mid-delivery robot failures.
+ */
 import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
 
